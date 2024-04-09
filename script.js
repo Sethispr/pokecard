@@ -42,7 +42,7 @@ let generateCard = (data) => {
     // Get necessary data and assign it to variables
     console.log(data);
     const hp = data.stats[0].base_stat;
-    const imgSrc = data.sprites.other.dream_world.front_default;
+    const imgSrc = data.sprites.other.dream_world.front_default || ""; // Handle potential undefined
     const pokeName = data.name[0].toUpperCase() + data.name.slice(1);
     const statAttack = data.stats[1].base_stat;
     const statDefense = data.stats[2].base_stat;
@@ -56,7 +56,7 @@ let generateCard = (data) => {
             <span>HP</span>
             ${hp}
         </p>
-        <img src=${imgSrc} onload="showCardContainer()" />
+        <img src="${imgSrc}" onload="showCardContainer()" />
         <h2 class="poke-name">${pokeName}</h2>
         <div class="types"></div>
         <div class="stats">
